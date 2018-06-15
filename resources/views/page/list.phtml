@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Produtos</h2>
+
+            <?php  if(isset($empty)):?>
+                <div class="alert alert-warning"><?= $empty ?> </div>
+            <?php endif; ?>
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Produto</th><th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if(isset($products)): foreach($products as $product): ?>
+                            <tr>
+
+                                <td><?= $product->name_product ?></td>
+                                <td><?php
+                                    if($product->number_product == 0) //se não tiver
+                                            echo "Em Falta";
+                                    else echo "Pronto para entrega";
+
+                                    ?></td>
+                            </tr>
+                        <?php endforeach; endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

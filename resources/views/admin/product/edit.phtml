@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <a href="<?= PATH ?>/admin/products"> Voltar para lista de produtos</a>
+            <h2>Editar Produto</h2>
+            <?php  if(isset($error)):?>
+                <div class="alert alert-danger"><?= $error ?></div>
+            <?php endif; ?>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="<?= PATH ?>/admin/product/<?= $product->id_product ?>/edit" method="post">
+                        <div class="form-group">
+                            <label for="titulo">Produto</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Nome" value="<?= $product->name_product ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="number">Quantidade</label>
+                            <input type="number" class="form-control" name="number" id="number"  placeholder="Quantidade" value="<?= $product->number_product ?>">
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Atualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

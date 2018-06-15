@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <h2>Produtos</h2>
+
+            <?php  if(isset($edit_success)):?>
+                <div class="alert alert-success"><?= $edit_success ?> </div>
+            <?php endif; ?>
+
+            <?php  if(isset($edit_error)):?>
+                <div class="alert alert-danger"><?= $edit_error ?> </div>
+            <?php endif; ?>
+
+            <?php  if(isset($del_success)):?>
+                <div class="alert alert-success"><?= $del_success ?> </div>
+            <?php endif; ?>
+
+            <?php  if(isset($del_error)):?>
+                <div class="alert alert-danger"><?= $del_error ?> </div>
+            <?php endif; ?>
+
+            <?php  if(isset($empty)):?>
+                <div class="alert alert-warning"><?= $empty ?> </div>
+            <?php endif; ?>
+
+            <a href="<?= PATH ?>/admin/product/add" class="btn btn-primary btn-lg btn-block">Novo Produto</a><br>
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Cod</th><th>Produto</th><th>QTD</th><th>Operações</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if(isset($products)): foreach($products as $product): ?>
+                            <tr>
+                                <td><?= $product->id_product ?></td>
+                                <td><?= $product->name_product ?></td>
+                                <td><?= $product->number_product ?></td>
+                                <td>
+                                    <a href="<?= PATH ?>/admin/product/<?= $product->id_product ?>/view" alt = "visualizar" class="btn btn-info">Visualizar</a>
+                                    <a href="<?= PATH ?>/admin/product/<?= $product->id_product ?>/edit" alt = "editar" class="btn btn-warning">Editar</a>
+                                    <a href="<?= PATH ?>/admin/product/<?= $product->id_product ?>/delete" alt = "excluir" class="btn btn-danger">Excluir</a>
+
+                                </td>
+                            </tr>
+                        <?php endforeach; endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

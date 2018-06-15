@@ -1,0 +1,31 @@
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2>Novo Produto</h2>
+            <?php  if(isset($error)):?>
+                <div class="alert alert-danger"><?= $error ?></div>
+            <?php endif; ?>
+            <?php  if(isset($success)):?>
+                <div class="alert alert-success"><?= $success ?> <a href="<?= PATH ?>/admin/products"> Voltar para lista de produtos</a></div>
+            <?php endif; ?>
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <form action="<?= PATH ?>/admin/product/add" method="post">
+                        <div class="form-group">
+                            <label for="name">Produto</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="number">Qunatidade</label>
+                            <input type="number" class="form-control" name="number" id="number" placeholder="Quantidade">
+                        </div>
+                        <button type="submit" class="btn btn-default">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
